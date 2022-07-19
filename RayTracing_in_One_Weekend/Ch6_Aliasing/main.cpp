@@ -9,6 +9,7 @@ Vec3 color(const RAY& r, Hitable *world)
 	hit_record rec;
 	if(world->hit(r, 0.001, MAXFLOAT, rec))
 	{
+		Vec3 target = rec.p + rec.normal + random_in_unit_sphere();
 		return 0.5*Vec3(rec.normal.x()+1, rec.normal.y()+1, rec.normal.z()+1);		
 	}
 	else
